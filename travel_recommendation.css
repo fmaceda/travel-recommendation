@@ -1,18 +1,29 @@
 /* ==========================================================================
    1. GLOBAL STYLES & RESET
    ========================================================================== */
-   * {
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+:root {
+    --primary-color: rgba(255, 255, 255, 0.863); /* A vibrant blue for links and buttons */
+    --secondary-color: #1b7ceb; /* A complementary green */
+    --text-color: #fdfdfd;
+    --text-color-placeholder: rgba(255, 255, 255, 0.637);
+    --nav-bg: rgba(15, 45, 58, 1);;
+    --border-color: #fff5f5;
+    --box-bg: #0057b31f;
+    --pill-bg: rgba(255, 255, 255, 0.178);
+}
+
 body {
     background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
-                url('https://unsplash.com') no-repeat center center fixed;
+                url('./assets/new-york.jpg') no-repeat center center fixed;
     background-size: cover;
-    color: #fff;
+    color:  var(--text-color);
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -21,28 +32,40 @@ body {
 /* ==========================================================================
    2. NAVIGATION BAR
    ========================================================================== */
-.navbar {
+ .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 20px 50px;
-    background-color: rgba(0, 0, 0, 0.75);
-    border-bottom: 2px solid #00bcd4;
+    background-color: var(--nav-bg);
     position: fixed;
     width: 100%;
     top: 0;
     z-index: 1000;
 }
 
+.nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.nav-logo img {
+    height: 40px;
+    width: auto;
+}
+
 .nav-logo h1 {
-    font-size: 24px;
+    font-size: 20px;
+    font-style: italic;
     letter-spacing: 2px;
-    color: #00bcd4;
+    color: var(--primary-color);
 }
 
 .nav-links {
     display: flex;
     list-style: none;
+    gap: 20px;
 }
 
 .nav-links li {
@@ -50,98 +73,239 @@ body {
 }
 
 .nav-links a {
-    color: #fff;
+    color: var(--text-color);
     text-decoration: none;
     font-size: 16px;
     font-weight: 500;
     transition: color 0.3s ease;
+    padding: 5px 10px;
 }
 
 .nav-links a:hover, 
 .nav-links a.active {
-    color: #00bcd4;
+    color: rgb(179, 200, 228);
+}
+
+.nav-search {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    background-color: rgba(255, 255, 255, 1);
+    padding: 4px 15px;
+    border-radius: 20px;
+}
+
+#searchInput{
+    padding: 8px 15px;
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    width: 250px;
+    transition: border-color 0.3s ease;
+}
+
+#searchInput:focus {
+    border-color: var(--primary-color);
+    outline: none;
 }
 
 /* ==========================================================================
    3. SEARCH BAR COMPONENT
    ========================================================================== */
-.search-container {
-    display: flex;
-    align-items: center;
-    background: rgba(255, 255, 255, 0.2);
-    padding: 5px 10px;
-    border-radius: 25px;
-    backdrop-filter: blur(5px);
-}
-
-.search-input {
-    background: none;
-    border: none;
-    outline: none;
+.nav-search button {
     padding: 8px 15px;
-    color: #fff;
-    font-size: 14px;
-    width: 200px;
-}
-
-.search-input::placeholder {
-    color: #e0e0e0;
-}
-
-.btn-search, 
-.btn-clear {
-    background-color: #00bcd4;
     border: none;
-    color: white;
-    padding: 8px 15px;
-    margin-left: 5px;
     border-radius: 20px;
     cursor: pointer;
     font-weight: bold;
-    transition: background 0.3s ease;
+    transition: background-color 0.3s ease;
 }
 
-.btn-clear {
-    background-color: #ff5722;
+.nav-search button#btnSearch, .nav-search button#btnClear {
+    background-color: var(--secondary-color);
+    color: white;
 }
 
-.btn-search:hover {
-    background-color: #008c9e;
-}
-
-.btn-clear:hover {
-    background-color: #e64a19;
+.nav-search button:hover {
+    background-color: rgb(243, 247, 246);
+    color: #110101;
 }
 
 /* ==========================================================================
-   4. HERO / MAIN CONTENT
+   4. MAIN CONTENT
    ========================================================================== */
 .main-wrapper {
     display: flex;
-    margin-top: 100px; /* Offset for fixed navbar */
-    padding: 40px 50px;
+    margin-top: 100px; 
+    padding: 40px 100px;
     flex: 1;
     justify-content: space-between;
 }
 
-.hero-section {
-    max-width: 45%;
+.content {
+    max-width: 60%;
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
 
-.hero-section h2 {
+.content h1 {
     font-size: 48px;
     margin-bottom: 20px;
     line-height: 1.2;
 }
 
-.hero-section p {
+.content p {
     font-size: 16px;
-    line-height: 1.6;
+    line-height: 1.2;
     margin-bottom: 30px;
     color: #e0e0e0;
+}
+
+.card {
+    width: 500px;
+    height: 580px;
+    background-color:white;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    margin: 5px;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+.card img {
+    width: 500px;
+    height: 400px;
+    border-radius: 10px 10px 0px 0px;
+    background-position: cover;
+}
+.card h3 {
+    padding: 10px;
+    font-weight: bolder;
+    color: #161515;
+}
+.card p {
+    font-weight: normal;
+    color:gray;
+    padding: 10px;
+}
+
+.content-left {
+    max-width: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.content-right {
+    max-width: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.contact-us-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    border-radius: 10px;
+    background-color: var(--box-bg);
+    border: 2px solid  #0057b33a;
+    padding: 10px;
+    width: 600px;
+}
+
+.contact-us-form .input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+}
+
+.contact-us-form #message-button, .card .visit-btn {
+    margin-top: 4px;
+    background-color: var(--secondary-color);
+    color: white;
+    font-size: large;
+    font-weight: bolder;
+    padding: 6px;
+    border-radius: 5px;
+}
+
+.contact-us-form #message-button:hover {
+    background-color:White;
+    color: Black;
+    cursor: pointer;
+}
+
+.card .visit-btn {
+    margin-left:10px;
+    margin-right: 50%;
+}
+
+.card .visit-btn:hover {
+    background-color: #443e3e;
+    color: white;
+    cursor: pointer;
+
+}
+
+input, textarea{
+    background-color: transparent;
+    border: 2px solid  var(--border-color);
+    border-radius: 5px;
+}
+
+input {
+    height: 30px;
+}
+
+.input-field::placeholder {
+  color: var(--text-color-placeholder);
+}
+
+.team-members {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.team-members .team-header {
+    max-width: 300px;
+    line-height: 3cm;
+}
+
+.team-members .team-member {
+    border-radius: 10px;
+    background-color: var(--box-bg);
+    border: 2px solid  #0057b33a;
+    box-shadow: 0 4px 8px rgba(73, 62, 62, 0.575);
+    padding: 20px 30px;
+    width: 200px;
+    height: 400px;
+    margin-top: 20px;
+    color: #fdfdfd;
+}
+
+.team-members .team-member img {
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.team-members .team-member h3 {
+    font-weight: bold;
+}
+
+.team-members .team-member span {
+    font-size: 14px;
+    color: #d1d1d1;
+    background-color: var(--pill-bg);
+    border: 2px solid  #0057b33a;
+    box-shadow: 0 4px 8px rgba(73, 62, 62, 1);
 }
 
 /* ==========================================================================
@@ -158,9 +322,18 @@ body {
     transform: translateY(-50%);
 }
 
+.social-icon-container {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+}
+
 .social-icon {
     color: #fff;
     font-size: 20px;
+    width: 40px;
+    height: 40px;
     text-decoration: none;
     transition: transform 0.3s ease, color 0.3s ease;
 }
@@ -173,7 +346,7 @@ body {
 /* ==========================================================================
    6. RECOMMENDATION RESULTS DYNAMIC CONTAINERS
    ========================================================================== */
-.results-panel {
+/* .results-panel {
     width: 45%;
     background: rgba(0, 0, 0, 0.8);
     border-radius: 15px;
@@ -225,12 +398,12 @@ body {
     font-size: 14px;
     color: #d1d1d1;
     line-height: 1.5;
-}
+} */
 
 /* ==========================================================================
    7. RESPONSIVE DESIGN (MEDIA QUERIES)
    ========================================================================== */
-@media (max-width: 900px) {
+/* @media (max-width: 900px) {
     .main-wrapper {
         flex-direction: column;
         gap: 40px;
@@ -247,6 +420,6 @@ body {
     }
     
     .social-sidebar {
-        display: none; /* Hide side socials on smaller displays */
+        display: none;
     }
-}
+} */

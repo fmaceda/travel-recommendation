@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Travel Recommendation System</title>
+        <link rel="stylesheet" href="./travel_recommendation.css">
+    </head>
+
+    <body>
+        <nav class="navbar">
+            <div class="nav-logo">
+                <img src="./assets/logo.png" alt="Travel Bloom Logo" class="logo">
+                <h1>Travel Bloom</h1>
+            </div>
+            <ul class="nav-links">
+                <li>
+                    <a href="./index.html" id="home">Home </a>
+                </li>
+                <li>
+                    <a href="./about_us.html" id="about">About Us </a>
+                </li>
+                <li>
+                    <a href="./contact_us.html" id="contact">Contact Us </a>
+                </li>
+            </ul>
+            <div class="nav-search">
+                <input type="text" id="searchInput" placeholder="Enter a destination or keyword">
+                <button id='btnSearch'>Search</button>
+                <button id='btnClear'>Clear</button>
+            </div>
+        </nav>
+        <div class="main-wrapper">
+            <div class="content-left">
+                <h1>Contact Us</h1>
+                <div id="summary">
+                    <p>
+                        Get in touch with us! We would love to hear from you. Whether you have questions, feedback, or just want to say hello, feel free to reach out to us through the following channels:
+                    </p>
+                </div>
+            </div>
+            <div class="content-right">
+                <div class="contact-us-form">
+                    <div class="input-group">
+                        <label for="name">Name: </label>
+                        <input type="text" name="name" id="name" class="input-field" placeholder="Enter your name">
+                    </div>
+                    <div class="input-group">
+                        <label for="email">Email: </label>
+                        <input type="email" name="email" id="email" class="input-field" placeholder="Enter your email" >
+                    </div>
+                    <div class="input-group">
+                        <label for="message">Message: </label>
+                        <textarea name="message" id="message" class="input-field" cols="30" rows="10" placeholder="Enter our message here"></textarea>
+                    </div>
+                    <button type="submit" id="message-button">Submit</button>
+                </div>                
+            </div>
+        </div>
+
+        <aside class="social-sidebar">
+            <ul class="social-icon-container">
+                <li><img class="social-icon" src="assets/twitter.svg" alt="Twitter-logo"></li>
+                <li><img class="social-icon" src="assets/facebook.svg" alt="FaceBook-logo"></li>
+                <li><img class="social-icon" src="assets/instagram.svg" alt="Instagram-logo"></li>
+                <li><img class="social-icon" src="assets/youtube.svg" alt="Youtube-logo"></li>
+            </ul>
+        </aside>
+    </body>
+</html>
