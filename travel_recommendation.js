@@ -35,6 +35,11 @@ function searchRecommendations() {
     results = travelData.temples;
   }
 
+  // Match keyword: countries
+  else if (search === "country" || search === "countries") {
+    results = travelData.countries.flatMap(c => c.cities);
+  }
+
   // Match keyword: countries (e.g. "Japan", "Brazil")
   else {
     // find country by name
